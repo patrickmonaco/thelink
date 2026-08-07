@@ -9,7 +9,5 @@ Deux plaques de verre — celle exposée au soleil est en verre à faible teneur
 <br>
 Entre ces deux plaques se trouvent de fines tranches de silicium cristallin — ce sont les cellules photovoltaïques proprement dites.
 <br>
-Les cellules sont maintenues en position entre les plaques et protégées des intempéries par un encapsulant (résine ou plastique type PVB ou EVA), qui les protège de l'humidité et des variations de température.
-<br>
 Une fois assemblé, le module a l'apparence et les propriétés d'un vitrage classique (isolation, sécurité, transmission lumineuse), tout en produisant de l'électricité<br>
 cf <a href="https://issol-bipv.com/references/the-link-paris/" target="_detail">Issol</a> </p>
