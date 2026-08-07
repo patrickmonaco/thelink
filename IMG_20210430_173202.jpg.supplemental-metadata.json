@@ -1,0 +1,36 @@
+{
+  "title": "IMG_20210430_173202.jpg",
+  "description": "",
+  "imageViews": "75",
+  "creationTime": {
+    "timestamp": "1785353382",
+    "formatted": "29 juil. 2026, 19:29:42 UTC"
+  },
+  "photoTakenTime": {
+    "timestamp": "1619796723",
+    "formatted": "30 avr. 2021, 15:32:03 UTC"
+  },
+  "geoData": {
+    "latitude": 48.887035399999995,
+    "longitude": 2.247134,
+    "altitude": 97.4,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 48.887035399999995,
+    "longitude": 2.247134,
+    "altitude": 97.4,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "url": "https://photos.google.com/photo/AF1QipMBU2Trx6kZ808ivTq1PHERGzWKc82U7OlIrR4a",
+  "googlePhotosOrigin": {
+    "mobileUpload": {
+      "deviceFolder": {
+        "localFolderName": ""
+      },
+      "deviceType": "ANDROID_PHONE"
+    }
+  }
+}

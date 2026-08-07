@@ -1,0 +1,36 @@
+{
+  "title": "IMG_20241001_144554423_HDR.jpg",
+  "description": "Tour The Link à gauche",
+  "imageViews": "46",
+  "creationTime": {
+    "timestamp": "1785770488",
+    "formatted": "3 août 2026, 15:21:28 UTC"
+  },
+  "photoTakenTime": {
+    "timestamp": "1727786754",
+    "formatted": "1 oct. 2024, 12:45:54 UTC"
+  },
+  "geoData": {
+    "latitude": 48.886486999999995,
+    "longitude": 2.254167,
+    "altitude": 81.742,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 48.886486999999995,
+    "longitude": 2.254167,
+    "altitude": 81.742,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "url": "https://photos.google.com/photo/AF1QipNplOlvBrLJOEnd4ZjwUcd4BGhf_UHNVsoawg9r",
+  "googlePhotosOrigin": {
+    "mobileUpload": {
+      "deviceFolder": {
+        "localFolderName": ""
+      },
+      "deviceType": "ANDROID_PHONE"
+    }
+  }
+}

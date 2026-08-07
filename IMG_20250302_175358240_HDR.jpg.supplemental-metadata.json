@@ -1,0 +1,36 @@
+{
+  "title": "IMG_20250302_175358240_HDR.jpg",
+  "description": "Façade photovoltaïque",
+  "imageViews": "72",
+  "creationTime": {
+    "timestamp": "1785352538",
+    "formatted": "29 juil. 2026, 19:15:38 UTC"
+  },
+  "photoTakenTime": {
+    "timestamp": "1740934438",
+    "formatted": "2 mars 2025, 16:53:58 UTC"
+  },
+  "geoData": {
+    "latitude": 48.887229,
+    "longitude": 2.247038,
+    "altitude": 86.8,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 48.887229,
+    "longitude": 2.247038,
+    "altitude": 86.8,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "url": "https://photos.google.com/photo/AF1QipMh3Bwr8zd9KhRyrl55fGjyPhR-gvWKlxgmKr6H",
+  "googlePhotosOrigin": {
+    "mobileUpload": {
+      "deviceFolder": {
+        "localFolderName": ""
+      },
+      "deviceType": "ANDROID_PHONE"
+    }
+  }
+}

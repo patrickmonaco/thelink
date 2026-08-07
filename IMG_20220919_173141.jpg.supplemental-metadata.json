@@ -1,0 +1,36 @@
+{
+  "title": "IMG_20220919_173141.jpg",
+  "description": "",
+  "imageViews": "57",
+  "creationTime": {
+    "timestamp": "1785353128",
+    "formatted": "29 juil. 2026, 19:25:28 UTC"
+  },
+  "photoTakenTime": {
+    "timestamp": "1663601504",
+    "formatted": "19 sept. 2022, 15:31:44 UTC"
+  },
+  "geoData": {
+    "latitude": 48.886939999999996,
+    "longitude": 2.2468555,
+    "altitude": 94.97,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 48.886939999999996,
+    "longitude": 2.2468555,
+    "altitude": 94.97,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "url": "https://photos.google.com/photo/AF1QipPllpnoR6_8usUMcQCdelJGWQSJ302gkhBamqpu",
+  "googlePhotosOrigin": {
+    "mobileUpload": {
+      "deviceFolder": {
+        "localFolderName": ""
+      },
+      "deviceType": "ANDROID_PHONE"
+    }
+  }
+}

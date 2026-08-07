@@ -1,0 +1,36 @@
+{
+  "title": "IMG_20210426_152609.jpg",
+  "description": "",
+  "imageViews": "85",
+  "creationTime": {
+    "timestamp": "1785353420",
+    "formatted": "29 juil. 2026, 19:30:20 UTC"
+  },
+  "photoTakenTime": {
+    "timestamp": "1619443570",
+    "formatted": "26 avr. 2021, 13:26:10 UTC"
+  },
+  "geoData": {
+    "latitude": 48.8872375,
+    "longitude": 2.247062,
+    "altitude": 85.15,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 48.8872375,
+    "longitude": 2.247062,
+    "altitude": 85.15,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "url": "https://photos.google.com/photo/AF1QipNbgPmerFWvNmNxRHM6Q-75l-ggrFVUueZGIgC8",
+  "googlePhotosOrigin": {
+    "mobileUpload": {
+      "deviceFolder": {
+        "localFolderName": ""
+      },
+      "deviceType": "ANDROID_PHONE"
+    }
+  }
+}

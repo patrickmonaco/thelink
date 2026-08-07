@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE LINK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gp-bg:#ffffff; --gp-ink:#202124; --gp-muted:#5f6368;
+    --gp-accent:#1a73e8; --gp-gap:4px; --gp-timeline-w:56px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--gp-bg); color:var(--gp-ink);
+       font-family:"Google Sans","Segoe UI",Roboto,Arial,sans-serif;}
+
+  .topbar{padding:18px 20px; border-bottom:1px solid #eceff1;
+          padding-right:calc(20px + var(--gp-timeline-w));}
+  .topbar h1{
+    margin:0 auto; max-width:900px;
+    text-align:center;
+    font-family:"Fredoka","Google Sans Flex","Google Sans",Roboto,sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+    white-space:pre-wrap;
+    word-break:break-word;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    font-size:96px;
+    color:#444746;
+  }
+  @media (max-width:900px){
+    .topbar h1{ font-size:48px; }
+  }
+  @media (max-width:480px){
+    .topbar h1{ font-size:32px; }
+  }
+  .topbar .sub{text-align:center; font-size:.8rem; color:var(--gp-muted); margin-top:4px;}
+
+  .container{padding:0 12px; padding-right:calc(12px + var(--gp-timeline-w));}
+
+  .day-heading{font-size:.9rem; font-weight:500; margin:22px 16px 8px;}
+  .year-block{
+    text-align:center; font-weight:700; font-size:1.6rem; color:var(--gp-ink);
+    margin:44px 0 6px; letter-spacing:.5px;
+  }
+  .comment-block{
+    margin:26px 3cm; padding:0 16px;
+    font-size:1.08rem; line-height:1.55; color:var(--gp-ink);
+  }
+  @media (max-width:640px){
+    .comment-block{ margin-left:0; margin-right:0; }
+  }
+  /* Le contenu des .txt est du HTML : on reprend la même police/couleurs
+     que le reste de la page pour les balises courantes. */
+  .comment-block p{ margin:0 0 12px; }
+  .comment-block p:last-child{ margin-bottom:0; }
+  .comment-block a{ color:var(--gp-accent); text-decoration:none; }
+  .comment-block a:hover{ text-decoration:underline; }
+  .comment-block strong, .comment-block b{ font-weight:600; }
+  .comment-block em, .comment-block i{ font-style:italic; }
+  .comment-block ul, .comment-block ol{ margin:8px 0 12px; padding-left:24px; }
+  .comment-block li{ margin:4px 0; }
+  .comment-block blockquote{
+    margin:12px 0; padding:2px 0 2px 16px;
+    border-left:3px solid #dadce0; color:var(--gp-muted);
+  }
+  .comment-block h1, .comment-block h2, .comment-block h3, .comment-block h4{
+    font-family:"Google Sans","Segoe UI",Roboto,Arial,sans-serif;
+    font-weight:600; line-height:1.3; margin:16px 0 8px;
+  }
+  .comment-block h1{ font-size:1.5rem; }
+  .comment-block h2{ font-size:1.3rem; }
+  .comment-block h3, .comment-block h4{ font-size:1.15rem; }
+  .comment-block img{ max-width:100%; height:auto; border-radius:4px; margin:8px 0; }
+  .comment-block hr{ border:none; border-top:1px solid #dadce0; margin:16px 0; }
+
+  .justified-row{display:flex; gap:var(--gp-gap); margin-bottom:var(--gp-gap);}
+  .g-item{position:relative; overflow:hidden; border-radius:4px; cursor:pointer; background:#f1f3f4;}
+  .g-item img{width:100%; height:100%; display:block; object-fit:cover; transition:transform .18s ease;}
+  .g-item:hover img{transform:scale(1.035);}
+
+  .g-item.is-video .play-badge{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:44px; height:44px; border-radius:50%;
+    background:rgba(0,0,0,.45); display:flex; align-items:center; justify-content:center;
+    pointer-events:none;
+  }
+  .g-item.is-video .play-badge::after{
+    content:""; width:0; height:0; margin-left:4px;
+    border-top:10px solid transparent; border-bottom:10px solid transparent;
+    border-left:16px solid #fff;
+  }
+  .g-item.is-video .duration-badge{
+    position:absolute; right:6px; bottom:6px;
+    background:rgba(0,0,0,.6); color:#fff; font-size:.72rem;
+    padding:1px 6px; border-radius:3px; pointer-events:none;
+  }
+  .g-item.no-thumb{
+    background:#3c4043; display:flex; align-items:center; justify-content:center;
+  }
+  .g-item .g-caption{
+    position:absolute; left:0; right:0; bottom:0;
+    background:linear-gradient(0deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.45) 60%, rgba(0,0,0,0) 100%);
+    color:#fff; font-size:.78rem; line-height:1.35;
+    padding:20px 10px 8px;
+    opacity:0; transition:opacity .15s ease;
+    pointer-events:none;
+    display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden;
+  }
+  .g-item:hover .g-caption{opacity:1;}
+
+  .viewer{position:fixed; inset:0; z-index:1050; background:rgba(10,10,10,.97);
+          display:none; flex-direction:column;}
+  .viewer.open{display:flex;}
+  .viewer-top{display:flex; align-items:center; justify-content:space-between;
+              padding:14px calc(20px + var(--gp-timeline-w)) 14px 20px; color:#e8eaed;}
+  #viewerMeta{font-size:.55rem; color:#9aa0a6; letter-spacing:.3px;}
+  .viewer-body{flex:1; display:flex; align-items:center; justify-content:center;
+               position:relative; min-height:0; padding-right:var(--gp-timeline-w);
+               overflow:hidden;}
+  .viewer-body img, .viewer-body video{
+    max-width:88vw; max-height:82vh; object-fit:contain; border-radius:2px;
+    cursor:zoom-in; transition:max-width .18s ease, max-height .18s ease, transform .18s ease;
+  }
+  .viewer.zoomed .viewer-body{padding-right:0;}
+  .viewer.zoomed .viewer-body img, .viewer.zoomed .viewer-body video{
+    max-width:100vw; max-height:100vh; border-radius:0;
+  }
+  .viewer-nav{position:absolute; top:50%; transform:translateY(-50%); width:52px; height:52px;
+              border-radius:50%; background:rgba(255,255,255,.08); border:none; color:#fff;
+              font-size:1.6rem; cursor:pointer;}
+  .viewer-nav:hover{background:rgba(255,255,255,.18);}
+  .viewer-nav.prev{left:16px;} .viewer-nav.next{right:calc(16px + var(--gp-timeline-w));}
+  .viewer-close{background:none; border:none; color:#e8eaed; font-size:1.4rem; cursor:pointer;}
+  .viewer-caption{
+    display:none; padding:8px calc(20px + var(--gp-timeline-w)) 24px 20px;
+    color:#e8eaed; text-align:center; font-size:.95rem; line-height:1.45;
+    max-width:760px; margin:0 auto; white-space:pre-wrap;
+  }
+  .viewer-caption.visible{display:block;}
+
+  /* ---- Timeline permanente (remplace le filmstrip du bas) ---- */
+  #timeline{
+    position:fixed; top:0; right:0; bottom:0; width:var(--gp-timeline-w);
+    z-index:1100; display:flex; flex-direction:column; align-items:center;
+    padding:10px 0;
+  }
+  .tl-tick{
+    position:absolute; right:6px; transform:translateY(-50%);
+    font-size:.68rem; color:var(--gp-muted); cursor:pointer;
+    padding:2px 6px; border-radius:10px; white-space:nowrap;
+    writing-mode:horizontal-tb;
+  }
+  .tl-tick:hover, .tl-tick.active{background:#e8f0fe; color:var(--gp-accent); font-weight:600;}
+  .viewer.open ~ #timeline .tl-tick, #timeline.in-viewer .tl-tick{color:#c7c9cb;}
+  .viewer.open ~ #timeline .tl-tick:hover, .viewer.open ~ #timeline .tl-tick.active{
+    background:rgba(255,255,255,.12); color:#fff;
+  }
+
+  .load-error{padding:40px; color:var(--gp-muted); font-size:.9rem;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <h1>THE LINK</h1>
+</div>
+<div class="container" id="galleryRoot"></div>
+<div id="timeline"></div>
+
+<div class="viewer" id="viewer">
+  <div class="viewer-top">
+    <button class="viewer-close" id="viewerClose">&times;</button>
+    <div class="sub" id="viewerMeta"></div>
+    <div></div>
+  </div>
+  <div class="viewer-body">
+    <button class="viewer-nav prev" id="navPrev">&#10094;</button>
+    <div id="viewerMediaSlot"></div>
+    <button class="viewer-nav next" id="navNext">&#10095;</button>
+  </div>
+  <div class="viewer-caption" id="viewerCaption"></div>
+</div>
+
+<script>
+const THUMB_SIZE = 640;
+let blocks = [];
+let flatMedia = [];  // photos + vidéos uniquement, dans l'ordre, pour la visionneuse
+const root = document.getElementById("galleryRoot");
+
+fetch("photos.json")
+  .then(r => { if(!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+  .then(data => {
+    blocks = data;
+    flatMedia = blocks.filter(b => b.type === "photo" || b.type === "video");
+    render();
+    buildTimeline();
+  })
+  .catch(err => {
+    root.innerHTML = '<div class="load-error">'
+      + 'Impossible de charger photos.json (' + err.message + ').<br>'
+      + "Si vous avez ouvert ce fichier directement (file://), le navigateur bloque "
+      + "cette requête par sécurité. Lancez un serveur local :<br>"
+      + "<code>python -m http.server 8000</code><br>puis "
+      + "<code>http://localhost:8000/gallery.html</code></div>";
+  });
+
+/* ---- Grille justifiée : toujours étirée sur toute la largeur ---- */
+/* Regroupe une série d'items en rangées (selon l'algorithme justifié
+   habituel), PUIS rééquilibre la toute dernière rangée si elle ne contient
+   qu'un seul élément : on lui emprunte le dernier élément de la rangée
+   précédente pour éviter une photo/vidéo isolée seule sur sa rangée. Fait
+   "si possible" seulement : si le segment entier ne contient qu'un item,
+   rien à emprunter, il reste seul (cas normal, ex. une seule photo entre
+   deux commentaires). */
+function packSegment(items, targetH, gap, containerWidth){
+  const rows = [];
+  let buffer = [], ratioSum = 0;
+  items.forEach(it=>{
+    buffer.push(it);
+    ratioSum += it.w/it.h;
+    const estWidth = targetH*ratioSum + gap*(buffer.length-1);
+    if(estWidth >= containerWidth){ rows.push(buffer); buffer = []; ratioSum = 0; }
+  });
+  if(buffer.length) rows.push(buffer);
+
+  if(rows.length >= 2 && rows[rows.length-1].length === 1){
+    const last = rows[rows.length-1];
+    const prev = rows[rows.length-2];
+    last.unshift(prev.pop());
+    if(prev.length === 0) rows.splice(rows.length-2, 1);
+  }
+  return rows;
+}
+
+function flushRow(container, buffer, targetH, gap, containerWidth){
+  if(!buffer.length) return;
+  const ratioSum = buffer.reduce((s,it)=> s + (it.w/it.h), 0);
+  const rowHeight = (containerWidth - gap*(buffer.length-1)) / ratioSum;
+
+  const row = document.createElement("div");
+  row.className = "justified-row";
+  buffer.forEach(it=>{
+    const w = rowHeight * (it.w/it.h);
+    const el = document.createElement("div");
+    el.className = "g-item" + (it.type === "video" ? " is-video" : "");
+    el.style.width = w+"px";
+    el.style.height = rowHeight+"px";
+
+    if(it.thumb){
+      const img = document.createElement("img");
+      img.loading = "lazy";
+      // La vignette est générée à THUMB_SIZE px max. Si la case affichée est
+      // plus grande (rangée courte étirée pleine largeur, cf. algorithme
+      // ci-dessus), la vignette serait agrandie et donc floue : on charge
+      // alors l'image pleine résolution à la place.
+      const useFullRes = it.type === "photo" && it.url
+        && Math.max(w, rowHeight) > THUMB_SIZE * 0.92;
+      img.src = useFullRes ? it.url : it.thumb;
+      el.appendChild(img);
+    } else {
+      el.classList.add("no-thumb");
+    }
+    if(it.type === "video"){
+      const badge = document.createElement("div");
+      badge.className = "play-badge";
+      el.appendChild(badge);
+      if(it.duration){
+        const d = document.createElement("div");
+        d.className = "duration-badge";
+        const m = Math.floor(it.duration/60), s = it.duration%60;
+        d.textContent = m + ":" + String(s).padStart(2,"0");
+        el.appendChild(d);
+      }
+    }
+    if(it.caption){
+      const cap = document.createElement("div");
+      cap.className = "g-caption";
+      cap.textContent = it.caption;
+      el.appendChild(cap);
+    }
+    el.addEventListener("click", ()=> openViewer(it.id));
+    row.appendChild(el);
+  });
+  container.appendChild(row);
+}
+
+function render(){
+  root.innerHTML = "";
+  const targetH = 210, gap = 4;
+  const containerWidth = root.clientWidth;
+  let segment = [];  // photos/vidéos accumulées depuis le dernier "break"
+
+  function flush(){
+    if(!segment.length) return;
+    const rows = packSegment(segment, targetH, gap, containerWidth);
+    rows.forEach(row => flushRow(root, row, targetH, gap, containerWidth));
+    segment = [];
+  }
+
+  blocks.forEach(b=>{
+    if(b.type === "photo" || b.type === "video"){
+      segment.push(b);
+    } else {
+      flush(); // toute rangée en cours est étirée pleine largeur avant le bloc spécial
+      if(b.type === "day"){
+        // chapitrage par jour désactivé (compat. anciens photos.json) : ignoré volontairement
+      } else if(b.type === "month" || b.type === "year"){
+        // Chapitrage mois/année. La classe "year-block" et l'attribut
+        // data-year sont conservés tels quels (même si le texte affiché est
+        // maintenant "avril 2022" et non plus "2022") : c'est sur eux que
+        // s'appuie la timeline, qui ne doit pas changer.
+        const y = document.createElement("div");
+        y.className = "year-block";
+        y.dataset.year = b.year;
+        y.textContent = b.label || b.year;
+        root.appendChild(y);
+      } else if(b.type === "comment"){
+        const c = document.createElement("div");
+        c.className = "comment-block";
+        c.innerHTML = b.text; // le contenu des .txt est du HTML, on le laisse s'interpréter
+        root.appendChild(c);
+      }
+    }
+  });
+  flush();
+}
+
+/* ---- Visionneuse ---- */
+let currentIndex = 0;
+const viewer = document.getElementById("viewer");
+const slot = document.getElementById("viewerMediaSlot");
+const viewerBody = document.querySelector(".viewer-body");
+const viewerMeta = document.getElementById("viewerMeta");
+const viewerCaption = document.getElementById("viewerCaption");
+
+// Paliers de zoom au clic : le 1er clic passe en plein écran (ajusté),
+// les suivants grossissent progressivement jusqu'à une limite raisonnable,
+// puis le clic suivant revient à la taille normale (cycle).
+const ZOOM_STEPS = [1, 1.5, 2, 2.6];
+let zoomStep = 0;
+let panX = 0, panY = 0;               // décalage de glissement courant
+let dragging = false, dragMoved = 0;
+let dragStartX = 0, dragStartY = 0, dragStartPanX = 0, dragStartPanY = 0;
+
+function applyZoom(img){
+  viewer.classList.toggle("zoomed", zoomStep > 0);
+  const scale = ZOOM_STEPS[zoomStep];
+  img.style.transform = zoomStep > 0
+    ? `translate(${panX}px, ${panY}px) scale(${scale})`
+    : "";
+  // Le curseur "main" ne s'affiche que s'il y a réellement de la marge à
+  // faire glisser à ce palier — sinon ça laisse croire qu'on peut déplacer
+  // l'image alors qu'elle est déjà entièrement visible.
+  const {maxX, maxY} = panBounds(img);
+  img.style.cursor = (zoomStep > 0 && (maxX > 0 || maxY > 0)) ? "grab" : "zoom-in";
+}
+
+function panBounds(img){
+  const scale = ZOOM_STEPS[zoomStep];
+  return {
+    maxX: Math.max(0, (img.clientWidth * scale - viewerBody.clientWidth) / 2),
+    maxY: Math.max(0, (img.clientHeight * scale - viewerBody.clientHeight) / 2),
+  };
+}
+
+function clampPan(img){
+  const {maxX, maxY} = panBounds(img);
+  panX = Math.min(maxX, Math.max(-maxX, panX));
+  panY = Math.min(maxY, Math.max(-maxY, panY));
+}
+
+function openViewer(id){
+  currentIndex = flatMedia.findIndex(p=>p.id===id);
+  renderViewer();
+  viewer.classList.add("open");
+}
+function renderViewer(){
+  const p = flatMedia[currentIndex];
+  zoomStep = 0; panX = 0; panY = 0;
+  viewer.classList.remove("zoomed"); // repart non-zoomé à chaque photo/vidéo
+  slot.innerHTML = "";
+  if(p.type === "video"){
+    const v = document.createElement("video");
+    v.src = p.url; v.controls = true; v.autoplay = true; v.poster = p.thumb || "";
+    slot.appendChild(v);
+  } else {
+    const img = document.createElement("img");
+    img.src = p.url;
+    img.draggable = false;
+
+    const startDrag = (x, y)=>{
+      dragging = true; dragMoved = 0;
+      dragStartX = x; dragStartY = y;
+      dragStartPanX = panX; dragStartPanY = panY;
+      if(zoomStep > 0) img.style.cursor = "grabbing";
+    };
+    const moveDrag = (x, y)=>{
+      if(!dragging) return;
+      const dx = x - dragStartX, dy = y - dragStartY;
+      dragMoved = Math.max(dragMoved, Math.hypot(dx, dy));
+      if(zoomStep > 0){
+        panX = dragStartPanX + dx;
+        panY = dragStartPanY + dy;
+        clampPan(img);
+        img.style.transform = `translate(${panX}px, ${panY}px) scale(${ZOOM_STEPS[zoomStep]})`;
+      }
+    };
+    const endDrag = ()=>{
+      if(!dragging) return;
+      dragging = false;
+      img.style.cursor = zoomStep > 0 ? "grab" : "zoom-in";
+      // Un déplacement quasi nul = un clic (avance le palier de zoom).
+      // Un vrai glissement ne touche pas au palier, seulement au recadrage.
+      if(dragMoved < 10){
+        zoomStep = (zoomStep + 1) % ZOOM_STEPS.length;
+        panX = 0; panY = 0;
+        applyZoom(img);
+      }
+    };
+
+    img.addEventListener("mousedown", e=>{ e.preventDefault(); startDrag(e.clientX, e.clientY); });
+    window.addEventListener("mousemove", e=> moveDrag(e.clientX, e.clientY));
+    window.addEventListener("mouseup", endDrag);
+    img.addEventListener("touchstart", e=>{
+      const t = e.touches[0]; startDrag(t.clientX, t.clientY);
+    }, {passive:true});
+    img.addEventListener("touchmove", e=>{
+      const t = e.touches[0]; moveDrag(t.clientX, t.clientY);
+    }, {passive:true});
+    img.addEventListener("touchend", endDrag);
+
+    slot.appendChild(img);
+  }
+  viewerMeta.textContent = (currentIndex+1)+" / "+flatMedia.length;
+  if(p.caption){
+    viewerCaption.textContent = p.caption;
+    viewerCaption.classList.add("visible");
+  } else {
+    viewerCaption.textContent = "";
+    viewerCaption.classList.remove("visible");
+  }
+  highlightTimeline();
+}
+document.getElementById("viewerClose").addEventListener("click", ()=>{
+  viewer.classList.remove("open", "zoomed"); slot.innerHTML = "";
+});
+document.getElementById("navPrev").addEventListener("click", ()=>{
+  currentIndex = (currentIndex-1+flatMedia.length)%flatMedia.length; renderViewer();
+});
+document.getElementById("navNext").addEventListener("click", ()=>{
+  currentIndex = (currentIndex+1)%flatMedia.length; renderViewer();
+});
+document.addEventListener("keydown", e=>{
+  if(!viewer.classList.contains("open")) return;
+  if(e.key==="Escape") document.getElementById("viewerClose").click();
+  if(e.key==="ArrowLeft") document.getElementById("navPrev").click();
+  if(e.key==="ArrowRight") document.getElementById("navNext").click();
+});
+
+/* ---- Timeline permanente (années), remplace le filmstrip ----
+   IMPORTANT : cette fonction re-lit le DOM et repositionne les ticks à
+   chaque appel. Elle doit être rappelée après CHAQUE render(), car
+   render() vide et reconstruit #galleryRoot : les anciens éléments
+   .year-block deviennent détachés du DOM, et leur offsetTop retombe à 0
+   (c'est ce qui provoquait toutes les dates empilées en haut après un
+   redimensionnement). */
+function buildTimeline(){
+  const tl = document.getElementById("timeline");
+  const activeYear = tl.dataset.activeYear || null;
+  tl.innerHTML = "";
+
+  const yearEls = [...root.querySelectorAll(".year-block")];
+  if(!yearEls.length) return;
+
+  const docHeight = Math.max(document.documentElement.scrollHeight, 1);
+
+  const years = [...new Set(yearEls.map(e=>e.dataset.year))];
+  years.forEach(y=>{
+    const el = yearEls.find(e=>e.dataset.year===y);
+    const tick = document.createElement("div");
+    tick.className = "tl-tick" + (y === activeYear ? " active" : "");
+    tick.dataset.year = y;
+    tick.textContent = y;
+    const ratio = el.offsetTop / docHeight;
+    tick.style.top = Math.min(Math.max(ratio,0),1) * 100 + "%";
+    tick.addEventListener("click", ()=> jumpToYear(y));
+    tl.appendChild(tick);
+  });
+}
+
+function jumpToYear(year){
+  if(viewer.classList.contains("open")){
+    const idx = flatMedia.findIndex(p => new Date(p.taken).getFullYear() === parseInt(year));
+    if(idx >= 0){ currentIndex = idx; renderViewer(); }
+  } else {
+    const el = root.querySelector('.year-block[data-year="'+year+'"]');
+    if(el) el.scrollIntoView({behavior:"smooth", block:"start"});
+  }
+}
+
+function highlightTimeline(){
+  const p = flatMedia[currentIndex];
+  if(!p) return;
+  const year = String(new Date(p.taken).getFullYear());
+  document.getElementById("timeline").dataset.activeYear = year;
+  document.querySelectorAll(".tl-tick").forEach(t=>{
+    t.classList.toggle("active", t.dataset.year === year);
+  });
+}
+
+/* Un seul cycle de redimensionnement : on reconstruit la grille PUIS la
+   timeline (dans cet ordre), jamais l'inverse ni séparément.
+   IMPORTANT : sur mobile, faire défiler la page montre/cache la barre
+   d'adresse du navigateur, ce qui déclenche un "resize" (hauteur qui change)
+   SANS que la largeur ne bouge. Notre grille ne dépend que de la largeur
+   (root.clientWidth) — on ignore donc tout resize qui ne change pas la
+   largeur, sinon on reconstruit toute la page à chaque scroll mobile et on
+   perd la position de défilement (retour en haut systématique). */
+let rTO;
+let lastWidth = root.clientWidth;
+window.addEventListener("resize", ()=>{
+  clearTimeout(rTO);
+  rTO = setTimeout(()=>{
+    const w = root.clientWidth;
+    if(w === lastWidth) return; // hauteur seule a changé (barre d'adresse mobile) : rien à faire
+    lastWidth = w;
+    render(); buildTimeline();
+  }, 120);
+});
+</script>
+</body>
+</html>

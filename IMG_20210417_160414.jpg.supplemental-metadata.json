@@ -1,0 +1,36 @@
+{
+  "title": "IMG_20210417_160414.jpg",
+  "description": "",
+  "imageViews": "91",
+  "creationTime": {
+    "timestamp": "1785353438",
+    "formatted": "29 juil. 2026, 19:30:38 UTC"
+  },
+  "photoTakenTime": {
+    "timestamp": "1618668255",
+    "formatted": "17 avr. 2021, 14:04:15 UTC"
+  },
+  "geoData": {
+    "latitude": 48.8871765,
+    "longitude": 2.2468851,
+    "altitude": 122.57,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 48.8871765,
+    "longitude": 2.2468851,
+    "altitude": 122.57,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "url": "https://photos.google.com/photo/AF1QipOEGZfRyyK5N1GOepmueLC29TJDf9R6-lEyEFOP",
+  "googlePhotosOrigin": {
+    "mobileUpload": {
+      "deviceFolder": {
+        "localFolderName": ""
+      },
+      "deviceType": "ANDROID_PHONE"
+    }
+  }
+}

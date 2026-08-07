@@ -1,0 +1,36 @@
+{
+  "title": "IMG_20211014_141558.jpg",
+  "description": "",
+  "imageViews": "67",
+  "creationTime": {
+    "timestamp": "1785353253",
+    "formatted": "29 juil. 2026, 19:27:33 UTC"
+  },
+  "photoTakenTime": {
+    "timestamp": "1634213760",
+    "formatted": "14 oct. 2021, 12:16:00 UTC"
+  },
+  "geoData": {
+    "latitude": 48.8871002,
+    "longitude": 2.2471218,
+    "altitude": 86.9,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 48.8871002,
+    "longitude": 2.2471218,
+    "altitude": 86.9,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "url": "https://photos.google.com/photo/AF1QipMaO_cZqOIO9xxMwj1AYQAASGhNPmSNkoZklyen",
+  "googlePhotosOrigin": {
+    "mobileUpload": {
+      "deviceFolder": {
+        "localFolderName": ""
+      },
+      "deviceType": "ANDROID_PHONE"
+    }
+  }
+}

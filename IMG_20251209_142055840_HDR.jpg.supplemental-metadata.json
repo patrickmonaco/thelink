@@ -1,0 +1,37 @@
+{
+  "title": "IMG_20251209_142055840_HDR.jpg",
+  "description": "Depuis l'île de Puteaux",
+  "imageViews": "46",
+  "creationTime": {
+    "timestamp": "1785770418",
+    "formatted": "3 août 2026, 15:20:18 UTC"
+  },
+  "photoTakenTime": {
+    "timestamp": "1765286456",
+    "formatted": "9 déc. 2025, 13:20:56 UTC"
+  },
+  "geoData": {
+    "latitude": 48.887212,
+    "longitude": 2.250495,
+    "altitude": 94.099,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 48.887212,
+    "longitude": 2.250495,
+    "altitude": 94.099,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "favorited": true,
+  "url": "https://photos.google.com/photo/AF1QipNyE6daMCmncVkvsiDg0fQAhliMio16LAlldhRq",
+  "googlePhotosOrigin": {
+    "mobileUpload": {
+      "deviceFolder": {
+        "localFolderName": ""
+      },
+      "deviceType": "ANDROID_PHONE"
+    }
+  }
+}

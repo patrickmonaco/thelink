@@ -1,0 +1,37 @@
+{
+  "title": "IMG_20231009_143719.jpg",
+  "description": "",
+  "imageViews": "62",
+  "creationTime": {
+    "timestamp": "1785352971",
+    "formatted": "29 juil. 2026, 19:22:51 UTC"
+  },
+  "photoTakenTime": {
+    "timestamp": "1696855041",
+    "formatted": "9 oct. 2023, 12:37:21 UTC"
+  },
+  "geoData": {
+    "latitude": 48.886871299999996,
+    "longitude": 2.2471031999999997,
+    "altitude": 86.13,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 48.886871299999996,
+    "longitude": 2.2471031999999997,
+    "altitude": 86.13,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "favorited": true,
+  "url": "https://photos.google.com/photo/AF1QipPXdSkz1uPRYfDwXnnHw4_3hD4dixsxUGEGQzaH",
+  "googlePhotosOrigin": {
+    "mobileUpload": {
+      "deviceFolder": {
+        "localFolderName": ""
+      },
+      "deviceType": "ANDROID_PHONE"
+    }
+  }
+}

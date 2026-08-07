@@ -1,0 +1,36 @@
+{
+  "title": "VID_20210426_163216.mp4",
+  "description": "",
+  "imageViews": "106",
+  "creationTime": {
+    "timestamp": "1785353420",
+    "formatted": "29 juil. 2026, 19:30:20 UTC"
+  },
+  "photoTakenTime": {
+    "timestamp": "1619447536",
+    "formatted": "26 avr. 2021, 14:32:16 UTC"
+  },
+  "geoData": {
+    "latitude": 48.8878,
+    "longitude": 2.2479,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 48.8878,
+    "longitude": 2.2479,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "url": "https://photos.google.com/photo/AF1QipNqpFE7dnlSwOoq3DLdSdKln3r1X4gY2mgj5dfp",
+  "googlePhotosOrigin": {
+    "mobileUpload": {
+      "deviceFolder": {
+        "localFolderName": ""
+      },
+      "deviceType": "ANDROID_PHONE"
+    }
+  }
+}

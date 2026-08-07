@@ -1,0 +1,36 @@
+{
+  "title": "VID_20220505_131049.mp4",
+  "description": "",
+  "imageViews": "79",
+  "creationTime": {
+    "timestamp": "1785353191",
+    "formatted": "29 juil. 2026, 19:26:31 UTC"
+  },
+  "photoTakenTime": {
+    "timestamp": "1651749049",
+    "formatted": "5 mai 2022, 11:10:49 UTC"
+  },
+  "geoData": {
+    "latitude": 48.8871,
+    "longitude": 2.2471,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 48.8871,
+    "longitude": 2.2471,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "url": "https://photos.google.com/photo/AF1QipMT7HlYLyFdu74yoKbpkbIXL6wOogA0lbzkv8-j",
+  "googlePhotosOrigin": {
+    "mobileUpload": {
+      "deviceFolder": {
+        "localFolderName": ""
+      },
+      "deviceType": "ANDROID_PHONE"
+    }
+  }
+}
