@@ -1,8 +1,7 @@
 01/03/2025
 <p>
 25% des besoins énergétiques d'éclairage de la tour sont couverts par sa façade photovoltaïque.<br>
-Les vitrages en écailles de la tour sont équipés de cellules photovoltaïques — chaque écaille est donc un module de type BIPV (Building Integrated Photovoltaics) : une "tuile de verre" à part entière qui remplace le vitrage classique, plutôt qu'un panneau ajouté par-dessus.
-<br>
+Chaque vitrage en écaille est donc un module de type BIPV (Building Integrated Photovoltaics)<br>
 Ce type de vitrage photovoltaïque est fabriqué en sandwich :
 <br>
 Deux plaques de verre — celle exposée au soleil est en verre à faible teneur en fer pour laisser passer un maximum de lumière.
