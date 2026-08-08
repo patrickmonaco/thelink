@@ -7,3 +7,4 @@
 <a href="https://www.youtube.com/watch?v=PxW8Oi-TfUE" target="_detail">Présentation de The Link par  Groupama</a><br>
 <a href="https://www.youtube.com/watch?v=CPnFrtqM0o4&t=13s" target="_detail">Ancien projet Tour Signal</a><br>
 <a href="https://www.pss-archi.eu/forum/viewtopic.php?pid=909671" target="_detail">Forum pss archi</a>
+<a href="The_Link_ChroniquePss_Archi.pdf" target="_detail">Chronique (pdf) générée à partir de Forum pss archi</a>
