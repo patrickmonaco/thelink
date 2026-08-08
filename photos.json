@@ -1232,14 +1232,5 @@
     "taken": "2026-08-07T12:00:00",
     "source": "txt",
     "file": "liens.txt"
-  },
-  {
-    "type": "photo",
-    "id": "TheLinkLogo_107",
-    "url": "TheLinkLogo.png",
-    "thumb": ".gp_thumbs/TheLinkLogo_107_640.jpg",
-    "w": 512,
-    "h": 510,
-    "taken": "2026-08-08T12:50:08.463958"
   }
 ]
